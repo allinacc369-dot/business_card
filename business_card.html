@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Thiếp Điện Tử | Mr. Joa Style</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #ffffff;
+        }
+        .card-container {
+            width: 100%;
+            max-width: 400px;
+            background: #1a1a1a;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(255, 102, 0, 0.15);
+            border: 1px solid #333;
+            position: relative;
+        }
+        .header-bg {
+            height: 100px;
+            background: linear-gradient(135deg, #ff6600 0%, #ff9933 100%);
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        .avatar-container {
+            position: relative;
+            padding: 40px 0 20px;
+            display: flex;
+            justify-content: center;
+            z-index: 2;
+        }
+        .avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #1a1a1a;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            background: #222;
+        }
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            border-radius: 16px;
+            background: #262626;
+            border: 1px solid #333;
+            color: #eee;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .contact-btn:hover {
+            background: #333;
+            transform: scale(1.02);
+            border-color: #ff6600;
+        }
+        .save-contact-btn {
+            background: #ff6600;
+            border: none;
+            color: white;
+            font-weight: 700;
+            justify-content: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        .save-contact-btn:hover {
+            background: #ff8533;
+        }
+        .contact-btn i {
+            width: 35px;
+            font-size: 1.2rem;
+            color: #ff6600;
+        }
+        .multi-action-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .small-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            border-radius: 16px;
+            background: #262626;
+            border: 1px solid #333;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .small-btn:hover {
+            border-color: #ff6600;
+            background: #333;
+        }
+        .small-btn i {
+            font-size: 1.2rem;
+            color: #ff6600;
+            margin-bottom: 4px;
+        }
+        .small-btn span {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #999;
+        }
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            padding: 20px 30px;
+        }
+        .social-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #999;
+            transition: all 0.3s;
+        }
+        .social-item i {
+            font-size: 1.4rem;
+            margin-bottom: 6px;
+            color: #ff6600;
+        }
+        .social-item:hover i {
+            color: #ff9933;
+            transform: translateY(-3px);
+        }
+        .qr-section {
+            background: #111;
+            padding: 25px;
+            text-align: center;
+            border-top: 1px solid #222;
+        }
+        .accent-border {
+            width: 40px;
+            height: 3px;
+            background: #ff6600;
+            margin: 12px auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container mx-4">
+        <div class="header-bg"></div>
+
+        <div class="avatar-container">
+            <img src="https://via.placeholder.com/150" alt="Avatar" class="avatar" onerror="this.src='https://ui-avatars.com/api/?name=Mr+Joa&background=ff6600&color=fff'">
+        </div>
+        
+        <div class="text-center px-6 relative z-10">
+            <h1 class="text-2xl font-bold text-white mb-1 tracking-tight">NGUYỄN VĂN AN</h1>
+            <p class="text-orange-500 text-xs font-bold tracking-[0.2em] uppercase mb-2">Creative Director</p>
+            <div class="accent-border"></div>
+            <p class="italic text-gray-400 text-sm px-4 mb-8">“Đồng hành cùng sự phát triển bền vững của bạn.”</p>
+        </div>
+
+        <div class="px-6 pb-2">
+            <!-- Nút Lưu Danh Bạ Chính -->
+            <button onclick="downloadVCard()" class="contact-btn save-contact-btn w-full shadow-lg shadow-orange-900/20">
+                <i class="fas fa-user-plus mr-2 text-white"></i>
+                <span>Lưu vào danh bạ</span>
+            </button>
+
+            <!-- Gộp Zalo và Hotline vào hàng ngang -->
+            <div class="multi-action-container">
+                <a href="tel:+84909123456" class="small-btn">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>Gọi điện</span>
+                </a>
+                <a href="https://zalo.me/0909123456" target="_blank" class="small-btn">
+                    <i class="fas fa-comment-dots"></i>
+                    <span>Zalo Chat</span>
+                </a>
+            </div>
+
+            <!-- Các liên kết khác -->
+            <a href="mailto:contact@mrjoa.io" class="contact-btn">
+                <i class="fas fa-envelope-open-text"></i>
+                <div class="flex flex-col">
+                    <span class="text-[9px] text-gray-500 uppercase font-bold tracking-wider">Email liên hệ</span>
+                    <span class="font-medium">contact@mrjoa.io</span>
+                </div>
+            </a>
+
+            <a href="https://allinacc369-dot.github.io/mrjoa/" target="_blank" class="contact-btn">
+                <i class="fas fa-external-link-alt"></i>
+                <div class="flex flex-col">
+                    <span class="text-[9px] text-gray-500 uppercase font-bold tracking-wider">Website Portfolio</span>
+                    <span class="font-medium">mrjoa.io/portfolio</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- Mạng xã hội -->
+        <div class="social-grid">
+            <a href="https://facebook.com/yourprofile" target="_blank" class="social-item"><i class="fab fa-facebook-square"></i><span class="text-[8px] uppercase font-bold">FB</span></a>
+            <a href="https://instagram.com/yourprofile" target="_blank" class="social-item"><i class="fab fa-instagram"></i><span class="text-[8px] uppercase font-bold">IG</span></a>
+            <a href="https://linkedin.com/in/yourprofile" target="_blank" class="social-item"><i class="fab fa-linkedin"></i><span class="text-[8px] uppercase font-bold">IN</span></a>
+            <a href="https://t.me/yourusername" target="_blank" class="social-item"><i class="fab fa-telegram"></i><span class="text-[8px] uppercase font-bold">TG</span></a>
+        </div>
+
+        <div class="qr-section">
+            <p class="text-[10px] text-gray-500 mb-3 uppercase font-bold tracking-[0.2em]">Quét để kết nối nhanh</p>
+            <div class="flex justify-center">
+                <div class="bg-white p-2 rounded-xl">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://allinacc369-dot.github.io/mrjoa/&color=111111" alt="QR Code" class="w-16 h-16">
+                </div>
+            </div>
+            <p class="mt-4 text-[8px] text-gray-600 font-bold uppercase tracking-widest">Designed by Mr. Joa Ecosystem</p>
+        </div>
+    </div>
+
+    <script>
+        function downloadVCard() {
+            const contact = {
+                name: "NGUYỄN VĂN AN",
+                phone: "+84909123456",
+                email: "contact@mrjoa.io",
+                title: "Creative Director",
+                url: "https://allinacc369-dot.github.io/mrjoa/"
+            };
+
+            const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:${contact.name}
+ORG:Mr. Joa Ecosystem
+TITLE:${contact.title}
+TEL;TYPE=CELL,VOICE:${contact.phone}
+EMAIL;TYPE=PREF,INTERNET:${contact.email}
+URL:${contact.url}
+REV:${new Date().toISOString()}
+END:VCARD`;
+
+            const blob = new Blob([vcard], { type: "text/vcard" });
+            const url = window.URL.createObjectURL(blob);
+            const newLink = document.createElement('a');
+            newLink.download = contact.name + ".vcf";
+            newLink.href = url;
+            newLink.click();
+            window.URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
